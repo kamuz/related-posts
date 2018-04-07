@@ -9,6 +9,10 @@
 add_filter('the_content', 'kmz_related_posts');
 
 function kmz_related_posts($content){
-    echo $id = get_the_ID();
+    $id = get_the_ID();
+    $categories = get_the_category($id);
+    echo '<pre>';
+    print_r($categories);
+    echo '</pre>';
     return $content;
 }
