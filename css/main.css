@@ -1,0 +1,19 @@
+.related-posts img{
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5) !important;
+}
+.related-posts a{
+    float: left;
+    margin-right: 15px;
+}
+.related-posts a{
+    box-shadow: none !important;
+}
+.tooltip{
+    display: none;
+    background: transparent url(../img/black_arrow.png);
+    font-size: 14px;
+    height: 120px;
+    width: 210px;
+    padding: 25px;
+    color: #fff;
+}
