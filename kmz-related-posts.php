@@ -9,6 +9,9 @@
 add_filter('the_content', 'kmz_related_posts');
 
 function kmz_related_posts($content){
+
+    if(!is_single()) return $content;
+
     $id = get_the_ID();
     $categories = get_the_category($id);
     foreach($categories as $category){
