@@ -31,6 +31,7 @@ function kmz_related_posts($content){
             $content .= '<a href="' . get_the_permalink() . '">' . get_the_title() . '</a><br>';
         }
         $content .= '</div>';
+        wp_reset_query();
     }
 
     return $content;
