@@ -19,12 +19,13 @@ function kmz_related_posts($content){
         array(
             'posts_per_page' => 5,
             'category__in' => $cats_id,
-            'orderby' => 'rand'
+            'orderby' => 'rand',
+            'post__not_in' => array($id)
         )
     );
 
     if($related_posts->have_posts()){
-        $content .= '<div class="related-posts"><h3>Maybe you interested</h3>';
+        $content .= '<div class="related-posts"><h3>Maybe you interested:</h3>';
         while($related_posts->have_posts()){
             $related_posts->the_post();
             $content .= '<a href="' . get_the_permalink() . '">' . get_the_title() . '</a><br>';
