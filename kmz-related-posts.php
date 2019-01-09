@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: KMZ Related Posts
- * Description: Show related posts after content on single post
+ * Description: Show related posts after content on the single post
  * Author: Vladimir Kamuz
  * Plugin URL: https://kamuz.pro
  */
@@ -9,16 +9,13 @@
 function kmz_related_enqueue_style() {
     wp_enqueue_style( 'kmz-related-style', plugins_url( 'css/', __FILE__ ).'main.css', false ); 
 }
+add_action( 'wp_enqueue_scripts', 'kmz_related_enqueue_style' );
 
 function kmz_related_enqueue_script() {
     wp_enqueue_script( 'kmz-related-tooltips',  plugins_url( 'js/', __FILE__ ).'jquery.tools.min.js', array('jquery') );
     wp_enqueue_script( 'kmz-related-script',  plugins_url( 'js/', __FILE__ ).'main.js', false );
 }
-
-add_action( 'wp_enqueue_scripts', 'kmz_related_enqueue_style' );
 add_action( 'wp_enqueue_scripts', 'kmz_related_enqueue_script' );
-
-add_filter('the_content', 'kmz_related_posts');
 
 function kmz_related_posts($content){
 
@@ -56,3 +53,4 @@ function kmz_related_posts($content){
 
     return $content;
 }
+add_filter('the_content', 'kmz_related_posts');
